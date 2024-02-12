@@ -7,6 +7,7 @@ body {
 
 h1 {
   color: rgb(240, 240, 240);
+  margin: 10px;
 }
 
 .file-container {
@@ -16,10 +17,8 @@ h1 {
 .file {
   color: rgb(222, 222, 222);
   cursor: pointer;
-  text-decoration: none;
-
+  text-decoration: none;  
   margin: 10px;
-
   width: fit-content;
   height: fit-content;
 }
@@ -29,8 +28,8 @@ h1 {
   cursor: pointer;
 }
 
-.file-img {
-  width: 1.5%;
+.icon {
+  width: 2%;
   margin-right: 10px;
   padding: 0;
   vertical-align: middle;
