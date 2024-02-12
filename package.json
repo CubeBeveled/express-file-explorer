@@ -1,0 +1,23 @@
+{
+  "name": "filehost",
+  "version": "0.0.1",
+  "description": "A thing that hosts files",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "Beveled Cube",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

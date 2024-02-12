@@ -1,0 +1,63 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  color: rgb(241, 241, 241);
+  background-color: rgb(33, 33, 33);
+}
+
+h1 {
+  color: rgb(240, 240, 240);
+}
+
+.file-container {
+  margin: 10px;
+}
+
+.file {
+  color: rgb(222, 222, 222);
+  cursor: pointer;
+  text-decoration: none;
+
+  margin: 10px;
+
+  width: fit-content;
+  height: fit-content;
+}
+
+.file:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.file-img {
+  width: 1.5%;
+  margin-right: 10px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.button {
+  cursor: pointer;
+  color: #fff;
+  border-style: none;
+  background-color: #c1234f;
+
+  border-radius: 20px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  display: inline-block;
+  vertical-align: middle;
+  width: fit-content;
+
+  transition: all, 0.30s;
+}
+
+.button:hover {
+  border-color: #912a47;
+  background-color: #7f2f46;
+  transition: all, 0.30s;
+}
