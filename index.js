@@ -5,13 +5,13 @@ const app = express();
 
 const port = 3000;
 
-app.use(express.static(__dirname + "/Public")); // Serve static files from the root directory
+app.use(express.static(__dirname + "/public")); // Serve static files from the root directory
 app.set("case sensitive routing", true)
 
 app.listen(port, () => { console.log("\x1b[32m", `Server is running on port ${port}`) });
 
 app.get("/", async (req, res) => {
-  const files = await getContents("Public/Files")
+  const files = await getContents("public/files")
     .catch((err) => {
       return { err: err };
     });
@@ -26,11 +26,11 @@ app.get("/", async (req, res) => {
       if (i.type == "file") {
         finalList.push(
           `<div class="file-container">
-            <a href="Files/${i.name}" class="file">
-              <img src="file.png" class="icon">
+            <a href="files/${i.name}" class="file">
+              <img src="assets/file.png" class="icon">
               ${i.name}
             </a>
-            <a href="Files/${i.name}" class="file" download>
+            <a href="files/${i.name}" class="file" download>
               <button class="button">Download</button>
             </a>
           </div>`
@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
       } else {
         finalList.push(
           `<div class="file-container">
-            <img src="folder.png" class="icon">
+            <img src="assets/folder.png" class="icon">
             ${i.name}
           </div>`
         )
@@ -51,7 +51,7 @@ app.get("/", async (req, res) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
         <title>Files</title>
       </head>
       <body>
