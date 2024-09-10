@@ -3,12 +3,12 @@ const path = require("path");
 const fs = require("fs")
 const app = express();
 
-const port = 25217;
+const port = 3000;
 
 app.use(express.static(__dirname + "/Public")); // Serve static files from the root directory
+app.set("case sensitive routing", true)
 
 app.listen(port, () => { console.log("\x1b[32m", `Server is running on port ${port}`) });
-
 
 app.get("/", async (req, res) => {
   const files = await getContents("Public/Files")
