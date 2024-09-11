@@ -273,7 +273,7 @@ function getIcon(fileName) {
   } else if (fileExtensions.sound.some(ext => ext == fileExtension)) {
     return "sound.svg"
   } else {
-    console.log(color.yellow("File format not recognized:"), fileExtension)
+    console.log(color.yellow("File extension not recognized:"), fileExtension)
     return "file.svg"
   }
 }
