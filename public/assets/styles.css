@@ -1,17 +1,23 @@
-/* styles.css */
 body {
   font-family: Arial, sans-serif;
   color: rgb(241, 241, 241);
   background-color: rgb(33, 33, 33);
 }
 
-h1 {
-  color: rgb(240, 240, 240);
+.file-container {
+  display: inline-block;
+  padding: 5px;
   margin: 10px;
+  border-radius: 10px;
+
+  outline-width: 0;
+  transition: 1s, all;
 }
 
-.file-container {
-  margin: 10px;
+.file-container:hover {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: rgba(179, 179, 179, 0.895);
 }
 
 .file {
@@ -29,8 +35,9 @@ h1 {
 }
 
 .icon {
-  width: 2%;
-  margin-right: 10px;
+  width: 2vw;
+  margin-right: 5px;
+  margin-bottom: 5px;
   padding: 0;
   vertical-align: middle;
 }
