@@ -77,8 +77,6 @@ function getContents(directoryPath) {
         let result = [];
 
         entries.forEach(async (entry) => {
-          const entryPath = path.join(directoryPath, entry.name);
-          // If its a directory, recursively list its contents (not anymore)
           if (entry.isDirectory()) {
             result.push({
               name: entry.name,
