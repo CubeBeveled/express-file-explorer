@@ -12,8 +12,17 @@ app.set("case sensitive routing", true)
 
 app.listen(port, () => { console.log(color.green(`Server is running on port ${port}`)) });
 
-app.get("/", async (req, res) => {
-  const files = await getContents("public/files")
+app.get("/{*path}", async (req, res) => {
+  let folderPath = ""
+  if (req.params.path) {
+    for(const i of req.params.path) {
+      folderPath = folderPath + "/" + i
+    }
+  } else folderPath = ""
+  
+  console.log(color.gray("Requested"), folderPath)
+
+  const files = await getContents("public/files" + folderPath)
     .catch((err) => {
       return { err: err };
     });
@@ -28,11 +37,11 @@ app.get("/", async (req, res) => {
       if (i.type == "file") {
         finalList.push(
           `<div class="file-container">
-            <a href="files/${i.name}" class="file">
-              <img src="assets/icons/${getIcon(i.name)}" class="icon">
+            <a href="/files${folderPath}/${i.name}" class="file">
+              <img src="/assets/icons/${getIcon(i.name)}" class="icon">
               ${i.name}
             </a>
-            <a href="files/${i.name}" class="file" download>
+            <a href="/files${folderPath}/${i.name}" class="file" download>
               <button class="button">Download</button>
             </a>
           </div>`
@@ -40,8 +49,10 @@ app.get("/", async (req, res) => {
       } else if (i.type == "dir") {
         finalList.push(
           `<div class="file-container">
-            <img src="assets/icons/folder.svg" class="icon">
-            ${i.name}
+            <a href="${folderPath}/${i.name}" class="file">
+              <img src="/assets/icons/folder.svg" class="icon">
+              ${i.name}
+            </a>
           </div>`
         )
       }
@@ -53,7 +64,7 @@ app.get("/", async (req, res) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css"/>
         <title>Files</title>
       </head>
       <body>
