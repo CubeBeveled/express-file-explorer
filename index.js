@@ -121,6 +121,12 @@ function getIcon(fileName) {
     fileName.endsWith(".py") ||
     fileName.endsWith(".html") ||
     fileName.endsWith(".css") ||
+    fileName.endsWith(".lua") ||
+    fileName.endsWith(".go") ||
+    fileName.endsWith(".java") ||
+    fileName.endsWith(".c") ||
+    fileName.endsWith(".cpp") ||
+    fileName.endsWith(".h") ||
     fileName.endsWith(".ipynb")
   ) {
     return "code.svg"
