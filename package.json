@@ -1,10 +1,10 @@
 {
-  "name": "filehost",
+  "name": "express-file-explorer",
   "version": "0.0.1",
-  "description": "A thing that hosts files",
+  "description": "A file explorer built using expressjs",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

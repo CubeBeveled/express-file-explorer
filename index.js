@@ -1,15 +1,17 @@
+// Required packages
 const express = require("express");
 const color = require("colors");
-const path = require("path");
-const fs = require("fs")
+const path = require("path"); // Package also included with nodejs to make working with file paths easier
+const fs = require("fs"); // Package included with nodejs to read and write files (fs: abbreviation for file system)
+
 const app = express();
 
-const port = 3000;
+const port = 3000; // Webserver port
 
-app.use(express.static(__dirname + "/public")); // Serve static files from the root directory
+app.use(express.static(__dirname + "/public")); // Server files from this folder
 app.set("case sensitive routing", true)
 
-app.listen(port, () => { console.log("\x1b[32m", `Server is running on port ${port}`) });
+app.listen(port, () => { console.log(color.green(`Server is running on port ${port}`)) });
 
 app.get("/", async (req, res) => {
   const files = await getContents("public/files")
@@ -65,6 +67,7 @@ app.get("/", async (req, res) => {
   }
 });
 
+// Function to get the contents of a folder
 function getContents(directoryPath) {
   return new Promise((resolve, reject) => {
     fs.readdir(directoryPath, { withFileTypes: true }, (err, entries) => {
