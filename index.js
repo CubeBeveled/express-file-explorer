@@ -100,8 +100,7 @@ function getIcon(fileName) {
 
   if (
     fileName.endsWith(".txt") ||
-    fileName.endsWith(".asc") ||
-    fileName.endsWith(".log")
+    fileName.endsWith(".asc")
   ) {
     return "text.svg"
   } else if (
@@ -126,9 +125,32 @@ function getIcon(fileName) {
     fileName.endsWith(".c") ||
     fileName.endsWith(".cpp") ||
     fileName.endsWith(".h") ||
+    fileName.endsWith(".php") ||
+    fileName.endsWith(".sql") ||
     fileName.endsWith(".ipynb")
   ) {
     return "code.svg"
+  } else if (
+    fileName.endsWith(".dmg") ||
+    fileName.endsWith(".iso")
+  ) {
+    return "disk.svg"
+  } else if (
+    fileName.endsWith(".dat") ||
+    fileName.endsWith(".dll") ||
+    fileName.endsWith(".editorconfig") ||
+    fileName.endsWith(".eslintrc") ||
+    fileName.endsWith(".conf")
+  ) {
+    return "config.svg"
+  } else if (
+    fileName.endsWith(".log") ||
+    fileName.endsWith(".csv") ||
+    fileName.endsWith(".json") ||
+    fileName.endsWith(".sqlite") ||
+    fileName.endsWith(".db")
+  ) {
+    return "data.svg"
   } else if (
     fileName.endsWith(".tar") ||
     fileName.endsWith(".gz") ||
@@ -169,6 +191,23 @@ function getIcon(fileName) {
   ) {
     return "video.svg"
   } else if (
+    fileName.endsWith(".png") ||
+    fileName.endsWith(".jpg") ||
+    fileName.endsWith(".jpeg") ||
+    fileName.endsWith(".webp") ||
+    fileName.endsWith(".gif") ||
+    fileName.endsWith(".png") ||
+    fileName.endsWith(".tiff") ||
+    fileName.endsWith(".bmp") ||
+    fileName.endsWith(".tmp") ||
+    fileName.endsWith(".eps") ||
+    fileName.endsWith(".svg") ||
+    fileName.endsWith(".psd") ||
+    fileName.endsWith(".raw") ||
+    fileName.endsWith(".ai")
+  ) {
+    return "image.svg"
+  } else if (
     fileName.endsWith(".srt") ||
     fileName.endsWith(".890") ||
     fileName.endsWith(".cip") ||
@@ -200,6 +239,7 @@ function getIcon(fileName) {
     fileName.endsWith(".wav") ||
     fileName.endsWith(".ra") ||
     fileName.endsWith(".pcm") ||
+    fileName.endsWith(".cda") ||
     fileName.endsWith(".wma")
   ) {
     return "sound.svg"
