@@ -27,7 +27,7 @@ app.get("/{*path}", async (req, res) => {
       return { err: err };
     });
 
-  let finalList = [];
+  let fileElements = [];
 
   if (files.err) {
     console.log(files.err)
@@ -35,7 +35,7 @@ app.get("/{*path}", async (req, res) => {
   } else {
     for (const i of files) {
       if (i.type == "file") {
-        finalList.push(
+        fileElements.push(
           `<div class="file-container">
             <a href="/files${folderPath}/${i.name}" class="file">
               <img src="/assets/icons/${getIcon(i.name)}" class="icon">
@@ -47,7 +47,7 @@ app.get("/{*path}", async (req, res) => {
           </div>`
         )
       } else if (i.type == "dir") {
-        finalList.push(
+        fileElements.push(
           `<div class="file-container">
             <a href="${folderPath}/${i.name}" class="file">
               <img src="/assets/icons/folder.svg" class="icon">
@@ -68,7 +68,7 @@ app.get("/{*path}", async (req, res) => {
         <title>Files</title>
       </head>
       <body>
-        ${finalList.join("")}
+        ${fileElements.join("")}
       </body>
       </html>
     `;
