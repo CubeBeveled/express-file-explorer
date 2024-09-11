@@ -1,7 +1,6 @@
 // Required packages
 const express = require("express");
 const color = require("colors");
-const path = require("path"); // Package also included with nodejs to make working with file paths easier
 const fs = require("fs"); // Package included with nodejs to read and write files (fs: abbreviation for file system)
 
 const app = express();
