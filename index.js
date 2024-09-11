@@ -15,12 +15,13 @@ app.listen(port, () => { console.log(color.green(`Server is running on port ${po
 app.get("/{*path}", async (req, res) => {
   let folderPath = ""
   if (req.params.path) {
-    for(const i of req.params.path) {
+    for (const i of req.params.path) {
       folderPath = folderPath + "/" + i
     }
   } else folderPath = ""
-  
-  console.log(color.gray("Requested"), folderPath)
+
+  if (folderPath == "") console.log(color.gray("Requested"), "/")
+  else console.log(color.gray("Requested"), folderPath)
 
   const files = await getContents("public/files" + folderPath)
     .catch((err) => {
@@ -108,154 +109,171 @@ function getContents(directoryPath) {
 
 function getIcon(fileName) {
   fileName = fileName.toLowerCase();
+  const fileExtension = fileName.split(".")[1]
 
-  if (
-    fileName.endsWith(".txt") ||
-    fileName.endsWith(".asc")
-  ) {
+  const fileExtensions = {
+    text: [
+      "txt",
+      "asc",
+    ],
+    textMedia: [
+      "docx",
+      "doc",
+      "wps",
+      "pdf",
+      "pages",
+      "rtf",
+      "md"
+    ],
+    code: [
+      "js",
+      "ts",
+      "py",
+      "html",
+      "css",
+      "lua",
+      "go",
+      "java",
+      "c",
+      "cpp",
+      "h",
+      "php",
+      "sql",
+      "ipy"
+    ],
+    disk: [
+      "dmg",
+      "iso"
+    ],
+    config: [
+      "dat",
+      "dll",
+      "editorconfig",
+      "eslintrc",
+      "conf"
+    ],
+    data: [
+      "log",
+      "csv",
+      "json",
+      "sqlite",
+      "db"
+    ],
+    archive: [
+      "tar",
+      "gz",
+      "bz2",
+      "zip",
+      "rar"
+    ],
+    book: [
+      "epub",
+      "azw3",
+      "cbz"
+    ],
+    email: [
+      "eml",
+      "msg"
+    ],
+    video: [
+      "mp4",
+      "m4v",
+      "m4p",
+      "mkv",
+      "mpv",
+      "mp2",
+      "mpg",
+      "mpeg",
+      "mov",
+      "qt",
+      "avi",
+      "wmv",
+      "flv",
+      "swf",
+      "avchd",
+      "3gp",
+      "mpe"
+    ],
+    images: [
+      "png",
+      "jpg",
+      "jpeg",
+      "webp",
+      "gif",
+      "png",
+      "tiff",
+      "bmp",
+      "tmp",
+      "eps",
+      "svg",
+      "psd",
+      "raw",
+      "ai"
+    ],
+    subtitles: [
+      "srt",
+      "890",
+      "cip",
+      "pac",
+      "scc",
+      "sub",
+      "xml",
+      "vtt",
+      "edl",
+      "stl"
+    ],
+    sound: [
+      "ogg",
+      "asf",
+      "aiff",
+      "flac",
+      "alac",
+      "mid",
+      "midi",
+      "aac",
+      "acc",
+      "mp3",
+      "ac3",
+      "mp2",
+      "vqf",
+      "qt",
+      "waf",
+      "wav",
+      "ra",
+      "pcm",
+      "cda",
+      "wma"
+    ]
+  }
+
+  if (fileExtensions.text.some(ext => ext == fileExtension)) {
     return "text.svg"
-  } else if (
-    fileName.endsWith(".docx") ||
-    fileName.endsWith(".doc") ||
-    fileName.endsWith(".wps") ||
-    fileName.endsWith(".pdf") ||
-    fileName.endsWith(".pages") ||
-    fileName.endsWith(".rtf") ||
-    fileName.endsWith(".md")
-  ) {
+  } else if (fileExtensions.textMedia.some(ext => ext == fileExtension)) {
     return "textmedia.svg"
-  } else if (
-    fileName.endsWith(".js") ||
-    fileName.endsWith(".ts") ||
-    fileName.endsWith(".py") ||
-    fileName.endsWith(".html") ||
-    fileName.endsWith(".css") ||
-    fileName.endsWith(".lua") ||
-    fileName.endsWith(".go") ||
-    fileName.endsWith(".java") ||
-    fileName.endsWith(".c") ||
-    fileName.endsWith(".cpp") ||
-    fileName.endsWith(".h") ||
-    fileName.endsWith(".php") ||
-    fileName.endsWith(".sql") ||
-    fileName.endsWith(".ipynb")
-  ) {
+  } else if (fileExtensions.code.some(ext => ext == fileExtension)) {
     return "code.svg"
-  } else if (
-    fileName.endsWith(".dmg") ||
-    fileName.endsWith(".iso")
-  ) {
+  } else if (fileExtensions.disk.some(ext => ext == fileExtension)) {
     return "disk.svg"
-  } else if (
-    fileName.endsWith(".dat") ||
-    fileName.endsWith(".dll") ||
-    fileName.endsWith(".editorconfig") ||
-    fileName.endsWith(".eslintrc") ||
-    fileName.endsWith(".conf")
-  ) {
+  } else if (fileExtensions.config.some(ext => ext == fileExtension)) {
     return "config.svg"
-  } else if (
-    fileName.endsWith(".log") ||
-    fileName.endsWith(".csv") ||
-    fileName.endsWith(".json") ||
-    fileName.endsWith(".sqlite") ||
-    fileName.endsWith(".db")
-  ) {
+  } else if (fileExtensions.data.some(ext => ext == fileExtension)) {
     return "data.svg"
-  } else if (
-    fileName.endsWith(".tar") ||
-    fileName.endsWith(".gz") ||
-    fileName.endsWith(".bz2") ||
-    fileName.endsWith(".zip") ||
-    fileName.endsWith(".rar")
-  ) {
+  } else if (fileExtensions.archive.some(ext => ext == fileExtension)) {
     return "archive.svg"
-  } else if (
-    fileName.endsWith(".epub") ||
-    fileName.endsWith(".azw3") ||
-    fileName.endsWith(".cbz")
-  ) {
+  } else if (fileExtensions.book.some(ext => ext == fileExtension)) {
     return "book.svg"
-  } else if (
-    fileName.endsWith(".eml") ||
-    fileName.endsWith(".msg")
-  ) {
+  } else if (fileExtensions.email.some(ext => ext == fileExtension)) {
     return "email.svg"
-  } else if (
-    fileName.endsWith(".mp4") ||
-    fileName.endsWith(".m4v") ||
-    fileName.endsWith(".m4p") ||
-    fileName.endsWith(".mkv") ||
-    fileName.endsWith(".mpv") ||
-    fileName.endsWith(".mp2") ||
-    fileName.endsWith(".mpg") ||
-    fileName.endsWith(".mpeg") ||
-    fileName.endsWith(".mov") ||
-    fileName.endsWith(".qt") ||
-    fileName.endsWith(".avi") ||
-    fileName.endsWith(".wmv") ||
-    fileName.endsWith(".flv") ||
-    fileName.endsWith(".swf") ||
-    fileName.endsWith(".avchd") ||
-    fileName.endsWith(".3gp") ||
-    fileName.endsWith(".mpe")
-  ) {
+  } else if (fileExtensions.video.some(ext => ext == fileExtension)) {
     return "video.svg"
-  } else if (
-    fileName.endsWith(".png") ||
-    fileName.endsWith(".jpg") ||
-    fileName.endsWith(".jpeg") ||
-    fileName.endsWith(".webp") ||
-    fileName.endsWith(".gif") ||
-    fileName.endsWith(".png") ||
-    fileName.endsWith(".tiff") ||
-    fileName.endsWith(".bmp") ||
-    fileName.endsWith(".tmp") ||
-    fileName.endsWith(".eps") ||
-    fileName.endsWith(".svg") ||
-    fileName.endsWith(".psd") ||
-    fileName.endsWith(".raw") ||
-    fileName.endsWith(".ai")
-  ) {
+  } else if (fileExtensions.images.some(ext => ext == fileExtension)) {
     return "image.svg"
-  } else if (
-    fileName.endsWith(".srt") ||
-    fileName.endsWith(".890") ||
-    fileName.endsWith(".cip") ||
-    fileName.endsWith(".pac") ||
-    fileName.endsWith(".scc") ||
-    fileName.endsWith(".sub") ||
-    fileName.endsWith(".xml") ||
-    fileName.endsWith(".vtt") ||
-    fileName.endsWith(".edl") ||
-    fileName.endsWith(".stl")
-  ) {
+  } else if (fileExtensions.subtitles.some(ext => ext == fileExtension)) {
     return "subtitles.svg"
-  } else if (
-    fileName.endsWith(".ogg") ||
-    fileName.endsWith(".asf") ||
-    fileName.endsWith(".aiff") ||
-    fileName.endsWith(".flac") ||
-    fileName.endsWith(".alac") ||
-    fileName.endsWith(".mid") ||
-    fileName.endsWith(".midi") ||
-    fileName.endsWith(".aac") ||
-    fileName.endsWith(".acc") ||
-    fileName.endsWith(".mp3") ||
-    fileName.endsWith(".ac3") ||
-    fileName.endsWith(".mp2") ||
-    fileName.endsWith(".vqf") ||
-    fileName.endsWith(".qt") ||
-    fileName.endsWith(".waf") ||
-    fileName.endsWith(".wav") ||
-    fileName.endsWith(".ra") ||
-    fileName.endsWith(".pcm") ||
-    fileName.endsWith(".cda") ||
-    fileName.endsWith(".wma")
-  ) {
+  } else if (fileExtensions.sound.some(ext => ext == fileExtension)) {
     return "sound.svg"
   } else {
-    console.log(color.yellow("File format not recognized:"), fileName.split(".")[1])
+    console.log(color.yellow("File format not recognized:"), fileExtension)
     return "file.svg"
   }
 }
