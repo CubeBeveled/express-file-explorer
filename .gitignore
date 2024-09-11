@@ -1,2 +1,5 @@
 node_modules
 public/files
+
+package-lock.json
+yarn.lock
