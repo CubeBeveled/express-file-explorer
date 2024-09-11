@@ -22,6 +22,10 @@ node index.js
 2. Accessing the web interface
    * If you are running this locally (on your computer) and have **not** changed the port go to http://localhost:3000
    * If you are running this on the cloud make sure the port is exposed and go to your cloud environment's ip or url
-  
-# Changing the port
+
+# Changing the webserver port
 To change the port change the index.js variable (around line 9) that by default is 3000
+
+# Adding files
+1. Make sure the `files` folder exists in the public folder
+2. Put your files there
