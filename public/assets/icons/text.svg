@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="-3 0 32 32"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="text.svg"
+   inkscape:version="1.3.2 (1:1.3.2+202404261509+091e20ef0f)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.97875"
+     inkscape:cx="400"
+     inkscape:cy="400"
+     inkscape:window-width="1920"
+     inkscape:window-height="992"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">text-document</title>
+  <desc
+     id="desc1">Created with Sketch Beta.</desc>
+  <defs
+     id="defs1" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     sketch:type="MSPage"
+     inkscape:highlight-color="#8e8e8e"
+     style="image-rendering:auto">
+    <g
+       id="Icon-Set"
+       sketch:type="MSLayerGroup"
+       transform="translate(-103,-99)"
+       fill="#ffffff">
+      <path
+         d="m 122,115 h -12 c -0.552,0 -1,0.448 -1,1 0,0.553 0.448,1 1,1 h 12 c 0.552,0 1,-0.447 1,-1 0,-0.552 -0.448,-1 -1,-1 z m 0,6 h -12 c -0.552,0 -1,0.447 -1,1 0,0.553 0.448,1 1,1 h 12 c 0.552,0 1,-0.447 1,-1 0,-0.553 -0.448,-1 -1,-1 z m 1,-14 c -1.104,0 -2,-0.896 -2,-2 v -4 l 6,6 z m 4,20 c 0,1.104 -0.896,2 -2,2 h -18 c -1.104,0 -2,-0.896 -2,-2 v -24 c 0,-1.104 0.896,-2 2,-2 h 11.972 c -0.018,2.395 0.028,4 0.028,4 0,2.209 1.791,4 4,4 h 4 z m -6,-28 v 0.028 c -0.128,0 -0.662,-0.049 -2,-0.028 h -12 c -2.209,0 -4,1.791 -4,4 v 24 c 0,2.209 1.791,4 4,4 h 18 c 2.209,0 4,-1.791 4,-4 v -20 z"
+         id="text-document"
+         sketch:type="MSShapeGroup" />
+    </g>
+  </g>
+</svg>
