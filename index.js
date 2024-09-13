@@ -109,7 +109,8 @@ function getContents(directoryPath) {
 
 function getIcon(fileName) {
   fileName = fileName.toLowerCase();
-  const fileExtension = fileName.split(".")[1]
+  const fileSplit = fileName.split(".")
+  const fileExtension = fileSplit[fileSplit.length - 1]
 
   const fileExtensions = {
     text: [
