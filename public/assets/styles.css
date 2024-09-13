@@ -67,3 +67,15 @@ body {
   background-color: #7f2f46;
   transition: all, 0.30s;
 }
+
+.compute-time {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  padding: 10px;
+  text-align: right;
+  border-radius: 10px;
+  background-color: rgba(117, 117, 117, 0.349);
+  color: rgb(145, 145, 145);
+}

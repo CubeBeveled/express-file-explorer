@@ -13,6 +13,7 @@ app.set("case sensitive routing", true)
 app.listen(port, () => { console.log(color.green(`Server is running on port ${port}`)) });
 
 app.get("/{*path}", async (req, res) => {
+  const start = Date.now()
   let folderPath = ""
   if (req.params.path) {
     for (const i of req.params.path) {
@@ -59,6 +60,7 @@ app.get("/{*path}", async (req, res) => {
       }
     }
 
+    const end = Date.now()
     const html = `
       <!DOCTYPE html>
       <html lang="en">
@@ -70,6 +72,9 @@ app.get("/{*path}", async (req, res) => {
       </head>
       <body>
         ${fileElements.join("")}
+        <div class="compute-time">
+          Rendered in ${(end - start) / 1000}s
+        </div>
       </body>
       </html>
     `;
