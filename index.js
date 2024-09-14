@@ -29,7 +29,7 @@ app.get("/{*path}", async (req, res) => {
       return { err: err };
     });
 
-  let fileElements = [];
+  let elements = [];
 
   if (files.err) {
     console.log(files.err)
@@ -37,7 +37,7 @@ app.get("/{*path}", async (req, res) => {
   } else {
     for (const i of files) {
       if (i.type == "file") {
-        fileElements.push(
+        elements.push(
           `<div class="file-container">
             <a href="/files${folderPath}/${i.name}" class="file">
               <img src="/assets/icons/${getIcon(i.name)}" class="icon">
@@ -49,7 +49,7 @@ app.get("/{*path}", async (req, res) => {
           </div>`
         )
       } else if (i.type == "dir") {
-        fileElements.push(
+        elements.push(
           `<div class="file-container">
             <a href="${folderPath}/${i.name}" class="file">
               <img src="/assets/icons/folder.svg" class="icon">
@@ -71,7 +71,7 @@ app.get("/{*path}", async (req, res) => {
         <title>Files</title>
       </head>
       <body>
-        ${fileElements.join("")}
+        ${elements.join("")}
         <div class="compute-time">
           Rendered in ${(end - start) / 1000}s
         </div>
@@ -156,7 +156,8 @@ function getIcon(fileName) {
       "dll",
       "editorconfig",
       "eslintrc",
-      "conf"
+      "conf",
+      "gitignore"
     ],
     data: [
       "log",
@@ -194,6 +195,7 @@ function getIcon(fileName) {
       "qt",
       "avi",
       "wmv",
+      "webm",
       "flv",
       "swf",
       "avchd",
